@@ -1,0 +1,12 @@
+for linting we use package "flake8"
+Run it through Docker Compose
+            >>>>>>>> docker-compose run --rm app sh -c "flake8" <<<<<<<
+
+            and it will shows the errors in our code , the line and the error type
+            remmber to fix the errors starting from the bottom !
+
+for testing we gonna use Django test suite and its a framework that comes with django 
+specificly for running tets on django pro .
+we gonna set up the test for each django pro we create and then we gonaa run it trough Docker Compose!
+
+>>>>>>>>>>> docker-compose run --rm app sh -c "python manage.py test" <<<<<<<

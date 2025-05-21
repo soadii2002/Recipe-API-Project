@@ -1,0 +1,19 @@
+#Git
+.git 
+.gitignore
+#delete any unnessary git files
+
+#Docker
+.dockerignore
+#delete any unnessary docker files
+
+#python
+app/__pycache__/
+app/*/__pycache__/
+app/*/*/__pycache__/    
+app/*/*/*/__pycache__/    
+.env/
+.venv/
+venv/
+#delete any unnessary python files or cache files and any env files 
+#we alredy have venv in docker
