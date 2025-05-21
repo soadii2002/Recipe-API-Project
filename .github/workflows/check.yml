@@ -1,15 +1,14 @@
----
-name : "Check"
+name: "Check"
 
-on : [push]
+on: [push]
 
-jops:
+jobs:
   test-lint:
     name: Test and Lint
     runs-on: ubuntu-20.04
     steps:
       - name: Login to Docker Hub
-        uses: docker/Login-actiony@v3
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
@@ -19,4 +18,3 @@ jops:
         run: docker-compose run --rm app sh -c "python manage.py test"
       - name: lint
         run: docker-compose run --rm app sh -c "flake8"
-
