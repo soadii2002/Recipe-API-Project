@@ -1,8 +1,10 @@
 # Configuration file for flake8 must be started with a comment ([flake8])
 [flake8]
 # Ignore specific errors and files from the Linting
-exlucde =
+exclude =
     migrations,
     __pycache__,
     manage.py,
     settings.py,   
+# Ignore specific error codes
+max-line-length = 120
