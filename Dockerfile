@@ -3,9 +3,6 @@ LABEL maintainer="RECIPE-COUSRE"
 
 ENV PYTHONUNBUFFERED=1
 
-#tmp dirictury is used to copy the requirements file so we insure we have it available during te duil phase
-# to the container, so that we can install the dependencies
-
 COPY ./requirements.txt /tmp/requirements.txt 
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 COPY ./app /app
@@ -15,11 +12,15 @@ EXPOSE 8000
 ARG DEV=false
 RUN python -m  venv /py && \
     /py/bin/pip install --upgrade pip && \
+    apk add --update --no-cahe postgresql-client && \
+    apk add --update --no-cahe --vitual .temp-build-deps \
+        build-base postgresql-dev musl-dev && \
     /py/bin/pip install -r /tmp/requirements.txt && \
     if [ $DEV = "true" ]; \
         then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
     fi && \
     rm -rf /tmp&&\
+    apk del .temp-build-deps && \
     adduser \
         --disabled-password \
         --no-create-home \
