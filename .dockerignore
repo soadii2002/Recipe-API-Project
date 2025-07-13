@@ -4,7 +4,7 @@
 #delete any unnessary git files
 
 #Docker
-.dockerignore
+.docker
 #delete any unnessary docker files
 
 #python
