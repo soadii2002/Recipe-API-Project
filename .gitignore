@@ -72,7 +72,7 @@ instance/
 docs/_build/
 
 # PyBuilder
-.pybuilder/
+
 target/
 
 # Jupyter Notebook
@@ -81,9 +81,7 @@ target/
 # IPython
 profile_default/
 ipython_config.py
-.pdm.toml
-.pdm-python
-.pdm-build/
+
 
 # pyenv
 .python-version
