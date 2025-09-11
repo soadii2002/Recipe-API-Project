@@ -3,7 +3,7 @@
 '''
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django.utils.translation import gettext as trans
+from django.utils.translation import gettext as _
 from core import models
 
 
@@ -15,9 +15,9 @@ class UserAdmin(BaseUserAdmin):
 
     fieldsets = (
         (None, {'fields': ('email','password')}),
-        (trans('Personal Info'), {'fields': ('name',)}),
+        (_('Personal Info'), {'fields': ('name',)}),
         (
-            trans('premissions'),
+            _('premissions'),
             {
                 'fields': (
                     'is_active',
@@ -26,7 +26,7 @@ class UserAdmin(BaseUserAdmin):
                 )
             }
         ),
-        (trans('important dates'), {'fields': ('last_login',)}
+        (_('important dates'), {'fields': ('last_login',)}
         )
     )
     readonly_fields = ['last_login']
